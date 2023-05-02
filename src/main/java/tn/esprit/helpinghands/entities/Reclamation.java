@@ -22,13 +22,11 @@ public class Reclamation {
     private long id;
     private String title;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+    private Date createdAt=new Date();
     @NotBlank
     private String description;
     @Enumerated(EnumType.STRING)
     ReclamationStatus status;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
     @ManyToOne
     private User user;
     @JsonIgnore
