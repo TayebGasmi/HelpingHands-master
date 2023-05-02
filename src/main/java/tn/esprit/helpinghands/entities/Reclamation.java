@@ -20,7 +20,7 @@ public class Reclamation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
+    private String title;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @NotBlank
