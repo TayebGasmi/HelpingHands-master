@@ -3,6 +3,7 @@ package tn.esprit.helpinghands.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.helpinghands.entities.Reclamation;
+import tn.esprit.helpinghands.entities.ReclamationStatus;
 import tn.esprit.helpinghands.repositories.ReclamationRepository;
 
 import java.util.List;
@@ -19,6 +20,7 @@ private ReclamationRepository reclamationRepository;
 
     @Override
     public Reclamation addReclamation(Reclamation reclamation) {
+        reclamation.setStatus(ReclamationStatus.PENDING);
         return reclamationRepository.save(reclamation);
     }
 
