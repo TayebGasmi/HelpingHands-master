@@ -19,7 +19,7 @@ public class Attachment {
     long size;
     @Lob
     byte[] data;
-    @ManyToOne
+    @OneToOne
     Reclamation reclamation;
 
 }

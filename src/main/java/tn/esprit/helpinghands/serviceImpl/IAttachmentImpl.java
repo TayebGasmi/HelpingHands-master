@@ -16,14 +16,13 @@ public class IAttachmentImpl implements IAttachment {
     @Autowired
     private AttachmentRepository attachmentRepository;
     @Override
-    public Attachment addAttachmentToReclamation(MultipartFile file, Reclamation reclamation)  {
+    public Attachment addAttachmentToReclamation(MultipartFile file)  {
         try {
             Attachment attachment = new Attachment();
             attachment.setData(file.getBytes());
             attachment.setFileName(file.getOriginalFilename());
             attachment.setContentType(file.getContentType());
             attachment.setSize(file.getSize());
-            attachment.setReclamation(reclamation);
             log.info("Attachment created");
             return attachmentRepository.save(attachment);
         }catch (IOException e){

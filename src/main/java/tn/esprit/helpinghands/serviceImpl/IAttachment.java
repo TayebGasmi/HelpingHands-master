@@ -5,5 +5,5 @@ import tn.esprit.helpinghands.entities.Attachment;
 import tn.esprit.helpinghands.entities.Reclamation;
 
 public interface IAttachment {
-Attachment addAttachmentToReclamation(MultipartFile file, Reclamation reclamation);
+Attachment addAttachmentToReclamation(MultipartFile file);
 }

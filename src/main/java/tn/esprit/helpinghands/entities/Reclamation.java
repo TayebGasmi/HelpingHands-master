@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,7 +20,7 @@ import java.util.Set;
 public class Reclamation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt=new Date();
@@ -30,9 +31,9 @@ public class Reclamation {
     @ManyToOne
     private User user;
     @JsonIgnore
-    @OneToMany(mappedBy = "reclamation", cascade = CascadeType.ALL)
-    private Set<Attachment> attachments;
-    @ManyToMany
-    private Set<CategoryReclamation> categoryReclamations;
+    @OneToOne(mappedBy = "reclamation", cascade = CascadeType.ALL)
+    private Attachment attachment;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<CategoryReclamation> categoryReclamations;
 
 }
